@@ -2,7 +2,7 @@
 set -eu
 
 pidfile="/var/run/paccoind.pid"
-command="/root/paccoind -printtoconsole -pid=$pidfile"
+command="_HOME_/paccoind -printtoconsole -pid=$pidfile"
 
 # Proxy signals
 function kill_app(){
