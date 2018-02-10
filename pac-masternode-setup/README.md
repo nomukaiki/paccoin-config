@@ -21,11 +21,11 @@ wget https://github.com/nomukaiki/paccoin-config/releases/download/1/pac-mastern
 tar -xzvf pac-masternode-setup.tar.gz
 cd pac-masternode-setup
 ```
-Replace the <user> and <pass> with the login for the supervisor console.
+Replace the _admin_ and _pass_ with the login for the supervisor console.
 ```
 USERNAME=admin && PASSWORD=pass && ./setup_supervisor.sh
 ```
 
 ### Access
 If everything goes well, you can open supervisor here:
-http://<your ip address>:9001/
+>>> http://_your ip address_:9001/
