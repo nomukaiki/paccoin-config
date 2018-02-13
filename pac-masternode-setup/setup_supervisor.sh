@@ -29,7 +29,15 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo -H python get-pip.py
 
 ### stoping pac daemon if it was running
-$HOME/paccoin-cli stop
+file="$HOME/paccoin-cli"
+if [ -f "$file" ]
+then
+	echo "$file installed. Stopping paccoind"
+	$HOME/paccoin-cli stop
+else
+	echo "$file not installed. If paccoind is running you will need to kill it manually before proceeding."
+	sudo ps -xa | grep "paccoind"
+fi
 
 ### starting supervisor
 sudo service supervisor start
