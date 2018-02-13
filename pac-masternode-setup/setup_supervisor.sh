@@ -32,7 +32,7 @@ sudo -H python get-pip.py
 $HOME/paccoin-cli stop
 
 ### starting supervisor
-sudo service supervisord start
+sudo service supervisor start
 
 ### removing existing crontab and adding the managed from supervisor
 crontab -r
