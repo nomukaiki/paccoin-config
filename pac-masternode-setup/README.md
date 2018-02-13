@@ -20,10 +20,11 @@ Download the setup script and extract
 wget https://github.com/nomukaiki/paccoin-config/releases/download/1/pac-masternode-setup.tar.gz
 tar -xzvf pac-masternode-setup.tar.gz
 cd pac-masternode-setup
+
 ```
 Replace the _admin_ and _pass_ with the login for the supervisor console.
 ```
-USERNAME=admin && PASSWORD=pass && ./setup_supervisor.sh
+./setup_supervisor.sh USERNAME PASSWORD
 ```
 
 ### Access
