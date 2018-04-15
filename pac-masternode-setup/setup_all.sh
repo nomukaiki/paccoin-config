@@ -55,10 +55,10 @@ echo "###############################"
 echo "#      Get/Setup binaries     #"
 echo "###############################"
 echo ""
-wget "https://github.com/PACCommunity/PAC/releases/download/v0.12.3.0/PAC-v0.12.3.0-ubuntu-16.04-x64.tar.gz"
-tar xvf 'PAC-v0.12.3.0-ubuntu-16.04-x64.tar.gz'
+wget "https://github.com/PACCommunity/PAC/releases/download/v0.12.3.0/PAC-v0.12.3.0-linux-x86_64.tar.gz"
+tar xvf 'PAC-v0.12.3.0-linux-x86_64.tar.gz'
 cd ~/
-rm PAC-v0.12.3.0-ubuntu-16.04-x64.tar.gz
+rm PAC-v0.12.3.0-linux-x86_64.tar.gz
 currpath=$( pwd )
 echo "Binaries got stored on: $currpath"
 chmod +x paccoind
