@@ -6,6 +6,16 @@ sudo apt-get update
 sudo apt-get -y --allow-unauthenticated install --install-recommends software-properties-common 
 sudo apt-get -y --allow-unauthenticated install --install-recommends git python virtualenv pwgen
 
+if [ "$1" == "--testnet" ]; then
+	pac_rpc_port=17111
+	pac_port=17112
+	is_testnet=1
+else
+	pac_rpc_port=7111
+	pac_port=7112
+	is_testnet=0
+fi
+
 arch=`uname -m`
 version="0.12.3.1"
 old_version="0.12.3.0"
