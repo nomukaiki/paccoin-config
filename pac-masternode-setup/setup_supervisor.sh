@@ -6,8 +6,7 @@ sudo apt-get -y install supervisor
 sudo apt-get -y install iptables-persistent
 
 ### setup firewall
-sudo iptables -A ufw-user-input -p tcp -m tcp --dport 9001 -j ACCEPT
-sudo netfilter-persistent save
+./firewall.sh
 
 sed -i "s+_HOME_+$HOME+g" paccoin-daemon.sh
 sed -i "s+_HOME_+$HOME+g" sentinel-run.sh
