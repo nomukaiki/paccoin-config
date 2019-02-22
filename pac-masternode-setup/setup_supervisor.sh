@@ -5,9 +5,6 @@ sudo apt-get -y update
 sudo apt-get -y install supervisor
 sudo apt-get -y install iptables-persistent
 
-### setup firewall
-./firewall.sh
-
 sed -i "s+_HOME_+$HOME+g" paccoin-daemon.sh
 sed -i "s+_HOME_+$HOME+g" sentinel-run.sh
 sed -i "s+_HOME_+$HOME+g" supervisord.conf
@@ -45,5 +42,9 @@ sudo service supervisor start
 sudo crontab -r
 echo '* * * * * supervisorctl start sentinel' > crontab.txt
 sudo crontab 'crontab.txt'
+
+### setup firewall
+./firewall.sh
+sudo service supervisor restart
 
 echo "Supervisor for Masternode installed successfully!"
