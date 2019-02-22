@@ -17,7 +17,7 @@ cd ~
 ```
 Download the setup script and extract
 ```
-wget https://github.com/nomukaiki/paccoin-config/releases/download/1/pac-masternode-setup.tar.gz
+wget -O pac-masternode-setup.tar.gz https://github.com/nomukaiki/paccoin-config/blob/master/pac-masternode-setup.tar.gz?raw=true
 tar -xzvf pac-masternode-setup.tar.gz
 cd pac-masternode-setup
 

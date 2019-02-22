@@ -42,8 +42,8 @@ fi
 sudo service supervisor start
 
 ### removing existing crontab and adding the managed from supervisor
-crontab -r
+sudo crontab -r
 echo '* * * * * supervisorctl start sentinel' > crontab.txt
-crontab 'crontab.txt'
+sudo crontab 'crontab.txt'
 
 echo "Supervisor for Masternode installed successfully!"
