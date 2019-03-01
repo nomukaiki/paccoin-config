@@ -4,8 +4,8 @@
 sudo apt-get -y update
 sudo apt-get -y install supervisor
 sudo apt-get -y install iptables-persistent
+sudo apt-get install ufw
 
-sed -i "s+_HOME_+$HOME+g" dash-daemon.sh
 sed -i "s+_HOME_+$HOME+g" supervisord.conf
 sed -i "s+_USERNAME_+$1+g" supervisord.conf
 sed -i "s+_PASSWORD_+$2+g" supervisord.conf
@@ -13,15 +13,15 @@ sed -i "s+_PASSWORD_+$2+g" supervisord.conf
 ### setting up supervisor configuration
 sudo cp supervisord.conf /etc/supervisor/supervisord.conf
 
-sudo cp dash-daemon.sh /usr/bin/dash-daemon.sh
-sudo chmod +x /usr/bin/dash-daemon.sh
+cp $HOME/.dashcore/dashd $HOME/dashd
+cp $HOME/.dashcore/dash-cli $HOME/dash-cli
 
 ### stoping daemon if it was running
-file="$HOME/.dashcore/dashd-cli"
+file="$HOME/dashd-cli"
 if [ -f "$file" ]
 then
 	echo "$file installed. Stopping dashd"
-	$HOME/.dashcore/dashd-cli stop
+	$HOME/dashd-cli stop
 else
 	echo "$file not installed. If dashd is running you will need to kill it manually before proceeding."
 	sudo ps -xa | grep "dashd"
@@ -29,12 +29,6 @@ fi
 
 ### starting supervisor
 sudo service supervisor stop
-
-### removing existing crontab and adding the managed from supervisor
-crontab -r
-sudo crontab -r
-echo '* * * * * supervisorctl start sentinel' > crontab.txt
-sudo crontab 'crontab.txt'
 
 ### setup firewall
 ./firewall.sh
